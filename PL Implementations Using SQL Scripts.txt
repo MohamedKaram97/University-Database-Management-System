@@ -1,0 +1,117 @@
+ 
+-- Function to Get Student's Full Name:
+
+CREATE OR REPLACE FUNCTION get_student_name(student_id IN NUMBER)
+RETURN VARCHAR2
+AS
+  student_name VARCHAR2(50);
+BEGIN
+  SELECT Name INTO student_name
+  FROM students
+  WHERE StudentID = student_id;
+
+  RETURN student_name;
+END;
+/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Procedure to Enroll a Student in a Course:
+
+CREATE OR REPLACE PROCEDURE enroll_student_in_course(
+  student_id IN NUMBER,
+  course_id IN NUMBER,
+  enroll_year IN NUMBER,
+  enroll_semester IN VARCHAR2
+)
+AS
+BEGIN
+  INSERT INTO StudentEnrollCourses(StudentID, CourseID, Year, Semester)
+  VALUES (student_id, course_id, enroll_year, enroll_semester);
+  COMMIT;
+END;
+/
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- Trigger to Update Course Credit Hours when a New Course is Inserted:
+
+CREATE OR REPLACE TRIGGER update_credit_hours
+BEFORE INSERT ON courses
+FOR EACH ROW
+BEGIN
+  -- Assuming there is a constant for default credit hours, e.g., 3
+  IF :NEW.CourseCreditHours IS NULL THEN
+    :NEW.CourseCreditHours := 3;
+  END IF;
+END;
+/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Function to Calculate GPA for a Student:
+
+CREATE OR REPLACE FUNCTION calculate_student_gpa(student_id IN NUMBER)
+RETURN NUMBER
+AS
+  total_credits NUMBER := 0;
+  total_points NUMBER := 0;
+BEGIN
+  FOR course_record IN (SELECT * FROM StudentEnrollCourses WHERE StudentID = student_id)
+  LOOP
+    total_credits := total_credits + (SELECT CourseCreditHours FROM courses WHERE CourseID = course_record.CourseID);
+    total_points := total_points + COALESCE(course_record.Grade, 0) * (SELECT CourseCreditHours FROM courses WHERE CourseID = course_record.CourseID);
+  END LOOP;
+
+  IF total_credits = 0 THEN
+    RETURN NULL; -- To avoid division by zero
+  END IF;
+
+  RETURN total_points / total_credits;
+END;
+/
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Function to getEnrolledCourseCount : 
+
+CREATE OR REPLACE FUNCTION getEnrolledCourseCount(V_StudentID NUMBER)
+RETURN NUMBER
+IS
+    v_course_count NUMBER;
+BEGIN
+    -- Retrieve the count of enrolled courses for the specified student
+    SELECT COUNT(*) INTO v_course_count
+    FROM StudentEnrollCourses
+    WHERE StudentID = V_StudentID;
+
+    -- Return the count
+    RETURN v_course_count;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RETURN 0; -- Return 0 if no data is found for the specified student
+END getEnrolledCourseCount;
+/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Function to calculateCourseGrade :
+
+CREATE OR REPLACE FUNCTION calculateCourseGrade(V_CourseID NUMBER)
+RETURN NUMBER
+IS
+    v_average_grade NUMBER;
+BEGIN
+    -- Calculate the average grade for the specified course
+    SELECT AVG(Grade) INTO v_average_grade
+    FROM StudentEnrollCourses
+    WHERE CourseID = V_CourseID AND Grade IS NOT NULL;
+
+    -- Return the average grade
+    RETURN v_average_grade;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        RETURN NULL; -- Return NULL if no data is found for the specified course
+END calculateCourseGrade;
+/
