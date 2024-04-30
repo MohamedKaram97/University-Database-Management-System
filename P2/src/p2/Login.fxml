@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p2.LoginController">
+   <children>
+      <Text layoutX="679.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+         <font>
+            <Font name="Britannic Bold" size="35.0" />
+         </font>
+      </Text>
+      <Text layoutX="679.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font name="Britannic Bold" size="35.0" />
+         </font>
+      </Text>
+      <TextField fx:id="username" layoutX="637.0" layoutY="297.0" prefHeight="30.0" prefWidth="235.0" />
+      <PasswordField fx:id="password" layoutX="637.0" layoutY="410.0" prefHeight="31.0" prefWidth="235.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="679.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@src/idcard2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="LoginBtn" layoutX="679.0" layoutY="465.0" mnemonicParsing="false" onAction="#login" prefHeight="55.0" prefWidth="155.0" text="Login">
+         <font>
+            <Font name="Book Antiqua" size="25.0" />
+         </font>
+      </Button>
+      <AnchorPane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #99FF99;">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/clay-banks-Hf8n0RUk7g0-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/desola-lanre-ologun-zYgV-NGZtlA-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutX="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/darya-tryfanava-d55fhArDES0-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutX="300.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/vasily-koloda-8CqDvPuo_kI-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/retrosupply-jLwVAUtLOAQ-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="300.0" layoutX="300.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Login/wander-fleur-8ZoE26ywFFM-unsplash.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p2.GradesController">
+   <children>
+      <TableView fx:id="tableID" layoutX="286.0" layoutY="126.0" prefHeight="450.0" prefWidth="700.0">
+         <columns>
+            <TableColumn fx:id="studentIDColumn" prefWidth="83.00003051757812" text="Student ID" />
+            <TableColumn fx:id="studentNameColumn" minWidth="0.0" prefWidth="128.0" text="Student Name" />
+            <TableColumn fx:id="courseIDColumn" prefWidth="77.0" text="Course ID" />
+            <TableColumn fx:id="courseNameColumn" prefWidth="114.0" text="Course Name" />
+            <TableColumn fx:id="scoreColumn" prefWidth="69.0" text="Score" />
+            <TableColumn fx:id="gradeColumn" prefWidth="60.0" text="Grade" />
+            <TableColumn fx:id="yearColumn" prefWidth="66.0" text="Year" />
+            <TableColumn fx:id="semesterColumn" prefWidth="105.0" text="Semster" />
+         </columns>
+      </TableView>
+      <Text layoutX="25.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="25.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course ID">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="29.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="25.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="27.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Semester">
+         <font>
+            <Font name="Bell MT Bold" size="25.0" />
+         </font>
+      </Text>
+      <TextField fx:id="studentIDField" layoutX="160.0" layoutY="125.0" prefHeight="30.0" prefWidth="120.0" />
+      <TextField fx:id="courseIDField" layoutX="160.0" layoutY="180.0" prefHeight="30.0" prefWidth="120.0" />
+      <TextField fx:id="scoreField" layoutX="160.0" layoutY="235.0" prefHeight="30.0" prefWidth="120.0" />
+      <TextField fx:id="semesterIDField" layoutX="160.0" layoutY="290.0" prefHeight="30.0" prefWidth="120.0" />
+      <TextField fx:id="yearIDField" layoutX="160.0" layoutY="350.0" prefHeight="30.0" prefWidth="120.0" />
+      <Button fx:id="updateBtn" alignment="CENTER" layoutX="25.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleUpdateGradesButton" text="Update" textAlignment="CENTER">
+         <font>
+            <Font name="Bell MT Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="DeleteBtn" alignment="CENTER" layoutX="193.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete" textAlignment="CENTER">
+         <font>
+            <Font name="Bell MT Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

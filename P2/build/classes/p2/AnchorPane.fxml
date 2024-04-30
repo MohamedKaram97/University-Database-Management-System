@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1150.0" style="-fx-background-color: #87CEFA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p2.MainSceneController">
+   <top>
+      <AnchorPane fx:id="headerPane" prefHeight="125.0" prefWidth="311.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="200.0" layoutX="500.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@src/university.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Logout" fitHeight="75.0" fitWidth="150.0" layoutX="973.0" layoutY="25.0" onMouseClicked="#Logout" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@src/logout.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane fx:id="anchorpanevboxmainpane" prefHeight="711.0" prefWidth="170.0" style="-fx-background-color: #87CEFA;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="vboxmainpane" alignment="CENTER" layoutX="7.0" layoutY="4.0" prefHeight="592.0" prefWidth="156.0" style="-fx-background-color: #F0F8FF; -fx-background-radius: 50,50,50,50; -fx-border-radius: 30,30,30,30;">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@src/programmer.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Button fx:id="StudentsBtn" alignment="CENTER" contentDisplay="CENTER" minHeight="35.0" mnemonicParsing="false" onAction="#Students" prefWidth="125.0" text="Students" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="CoursesBtn" contentDisplay="CENTER" minHeight="35.0" mnemonicParsing="false" onAction="#Courses" prefWidth="125.0" text="Courses" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="DepartmentBtn" contentDisplay="CENTER" minHeight="35.0" mnemonicParsing="false" onAction="#Department" prefWidth="125.0" text="Departments" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="GradesBtn" contentDisplay="CENTER" minHeight="35.0" mnemonicParsing="false" onAction="#Grades" prefWidth="125.0" text="Grades" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="ReportsBtn" contentDisplay="CENTER" minHeight="35.0" mnemonicParsing="false" prefWidth="125.0" text="Report" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow color="#e4e4e4" height="46.84" radius="30.455000000000002" spread="0.06" width="76.98" />
+               </effect>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="btn" prefHeight="700.0" prefWidth="1100.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
